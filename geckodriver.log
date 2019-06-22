@@ -1,0 +1,161 @@
+1551052755723	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.JEJPQ0HGhBjB"
+1551052761834	Marionette	INFO	Listening on port 2828
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+[Child 2460] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 2460] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1551053033290	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.eVupkHJ1KvcI"
+1551053038374	Marionette	INFO	Listening on port 2828
+[Child 2730] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 2730] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1551053964812	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.aw1pMVVk2WpB"
+1551053969478	Marionette	INFO	Listening on port 2828
+1551060572440	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.K5fW82uFVPKm"
+1551060578578	Marionette	INFO	Listening on port 2828
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+[Child 4067] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 4067] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1551061128491	geckodriver	INFO	geckodriver 0.18.0
+1551061128509	geckodriver	INFO	Listening on 127.0.0.1:59247
+1551061130162	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1551061136462	Marionette	INFO	Listening on port 36339
+1551061136944	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1551061933129	geckodriver	INFO	geckodriver 0.18.0
+1551061933148	geckodriver	INFO	Listening on 127.0.0.1:32937
+1551061934923	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1551061941258	Marionette	INFO	Listening on port 35493
+1551061941758	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 4887] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 4887] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1551062265048	geckodriver	INFO	geckodriver 0.18.0
+1551062265082	geckodriver	INFO	Listening on 127.0.0.1:50683
+1551062266671	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1551062271756	Marionette	INFO	Listening on port 43765
+1551062272234	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 5157] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 5157] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+1551062648293	geckodriver	INFO	geckodriver 0.18.0
+1551062648313	geckodriver	INFO	Listening on 127.0.0.1:53487
+1551062649923	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1551062655598	Marionette	INFO	Listening on port 37913
+1551062656092	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+console.warn: notDebuggee: cannot access the environment of this function.
+console.warn: notDebuggee: cannot access the environment of this function.
+1551278294223	geckodriver	INFO	geckodriver 0.18.0
+1551278294255	geckodriver	INFO	Listening on 127.0.0.1:41199
+1551278297473	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1551278305890	Marionette	INFO	Listening on port 39211
+1551278307008	Marionette	WARN	TLS certificate errors will be ignored for this session
+1551278950184	geckodriver	INFO	geckodriver 0.18.0
+1551278950221	geckodriver	INFO	Listening on 127.0.0.1:60793
+1551278953314	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette", "--no-sandbox", "--window-size=800,800", "user-data-dir=browser_data"]
+1551278963720	Marionette	INFO	Listening on port 40183
+1551278964966	Marionette	WARN	TLS certificate errors will be ignored for this session
+1551279010660	geckodriver	INFO	geckodriver 0.18.0
+1551279010684	geckodriver	INFO	Listening on 127.0.0.1:60531
+1551279012628	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette", "--no-sandbox", "user-data-dir=browser_data"]
+1551279018530	Marionette	INFO	Listening on port 43909
+1551279019008	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 1083] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1083] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+1551279241187	geckodriver	INFO	geckodriver 0.18.0
+1551279241211	geckodriver	INFO	Listening on 127.0.0.1:56167
+1551279243143	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette", "--no-sandbox", "user-data-dir=browser_data"]
+1551279249000	Marionette	INFO	Listening on port 33619
+1551279249480	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 1277] WARNING: pipe error: Pipe quebrado: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 1277] WARNING: pipe error (26): Conexão fechada pela outra ponta: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 1277] WARNING: pipe error (3): Conexão fechada pela outra ponta: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 1277] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1277] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1551279560605	geckodriver	INFO	geckodriver 0.18.0
+1551279560629	geckodriver	INFO	Listening on 127.0.0.1:48159
+1551279562559	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette", "--no-sandbox", "user-data-dir=browser_data"]
+1551279568636	Marionette	INFO	Listening on port 33261
+1551279569122	Marionette	WARN	TLS certificate errors will be ignored for this session
+1551279913668	geckodriver	INFO	geckodriver 0.18.0
+1551279913687	geckodriver	INFO	Listening on 127.0.0.1:46513
+1551279915618	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette", "--no-sandbox", "user-data-dir=browser_data"]
+1551279921426	Marionette	INFO	Listening on port 36373
+1551279921894	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 1710] WARNING: pipe error (3): Conexão fechada pela outra ponta: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 1710] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1710] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
