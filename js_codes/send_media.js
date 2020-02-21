@@ -1,91 +1,30 @@
-setTimeout(function() {
-function getAllModules() {
-    return new Promise((resolve) => {
-        const id = _.uniqueId("fakeModule_");
-        window["webpackJsonp"](
-            [],
-            {
-                [id]: function(module, exports, __webpack_require__) {
-                    resolve(__webpack_require__.c);
-                }
-            },
-            [id]
-        );
-    });
-}
+window.base64ImageToFile = function(base64, filename) {
+	var arr   = b64Data.split(',');
+    var mime  = arr[0].match(/:(.*?);/)[1];
+    var bstr  = atob(arr[1]);
+    var n     = bstr.length;
+    var u8arr = new Uint8Array(n);
 
-var modules = getAllModules()._value;
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
 
-for (var key in modules) {
-	if (modules[key].exports) {
-		if (modules[key].exports.createFromData) {
-			createFromData_id = modules[key].id.replace(/"/g, '"');
-		}
-		if (modules[key].exports.prepRawMedia) {
-			prepareRawMedia_id = modules[key].id.replace(/"/g, '"');
-		}
-		if (modules[key].exports.default) {
-			if (modules[key].exports.default.Wap) {
-				store_id = modules[key].id.replace(/"/g, '"');
-			}
-		}
-	}
-}
-
-}, 2000);
-
-
-
-function _requireById(id) {
-	return webpackJsonp([], null, [id]);
-}
-
-var createFromData_id = 0;
-var prepareRawMedia_id = 0;
-var store_id = 0;
-
-function fixBinary (bin) {
-	var length = bin.length;
-	var buf = new ArrayBuffer(length);
-	var arr = new Uint8Array(buf);
-	for (var i = 0; i < length; i++) {
-	  arr[i] = bin.charCodeAt(i);
-	}
-	return buf;
-}
-
-var send_media;
-window.send_media = function(jid, link, caption, msg_id) {
-	var file = "";
-	var createFromDataClass = _requireById(createFromData_id)["default"];
-	var prepareRawMediaClass = _requireById(prepareRawMedia_id).prepRawMedia;
-	window.Store.Chat.find(jid).then((chat) => {
-		chat.markComposing();
-		var img_b64 = link;
-		var base64 = img_b64.split(',')[1];
-		var type = img_b64.split(',')[0];
-		type = type.split(';')[0];
-		type = type.split(':')[1];
-		var binary = fixBinary(atob(base64));
-		var blob = new Blob([binary], {type: type});
-		var random_name = Math.random().toString(36).substr(2, 5);
-		file = new File([blob], random_name, {
-			type: type,
-			lastModified: Date.now()
-		});
-
-		var temp = createFromDataClass.createFromData(file, file.type);
-		var rawMedia = prepareRawMediaClass(temp, {});
+    return new File([u8arr], filename, {type: mime});
+} 
+window.send_media = function(jid, base64, caption, msg_id) {
+	var done = null;
+	var filename = "temp";
+	var idUser = new window.Store.UserConstructor(jid, { intentionallyUsePrivateConstructor: true });
+	return Store.Chat.find(idUser).then((chat) => {
+		var mediaBlob = window.base64ImageToFile(base64, filename);
+		var mc = new Store.MediaCollection();
 		var target = _.filter(window.Store.Msg.models, (msg) => {
 			return msg.id.id === msg_id;
 		})[0];
-		var textPortion = {
-			caption: caption,
-			mentionedJidList: [],
-			quotedMsg: target
-		};
-		rawMedia.sendToChat(chat, textPortion);
-
-
+		mc.processFiles([mediaBlob], chat, 1).then(() => {
+			var media = mc.models[0];
+			media.sendToChat(chat, { caption: caption, quotedMsg: target });
+			if (done !== undefined) done(true);
+		});
 	});
 }

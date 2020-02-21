@@ -12,13 +12,6 @@ window.isChatMessage = function (message) {
 }
 
 window.readMessages = function(chat_index) {
-    if (window.Store === undefined) {
-        try{
-            webpackJsonp([], {"bcihgfbdeb": (x, y, z) => window.Store = z('"bcihgfbdeb"')}, "bcihgfbdeb");
-            webpackJsonp([], {"iaeeehaci": (x, y, z) => window.Store.Wap = z('"iaeeehaci"')}, "iaeeehaci");
-        } catch (e) {}
-    }
-
     var chat = Store.Chat.models[chat_index];
 
     var temp = {};
@@ -46,13 +39,6 @@ window.readMessages = function(chat_index) {
 }
 
 window.getUnreadChats = function () {
-    if (window.Store === undefined) {
-        try{
-            webpackJsonp([], {"bcihgfbdeb": (x, y, z) => window.Store = z('"bcihgfbdeb"')}, "bcihgfbdeb");
-            webpackJsonp([], {"iaeeehaci": (x, y, z) => window.Store.Wap = z('"iaeeehaci"')}, "iaeeehaci");
-        } catch (e) {}
-    }
-
     var Chats = Store.Chat.models;
     var Output = [];
 

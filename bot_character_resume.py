@@ -1,5 +1,5 @@
 import requests
-from utils import read_more
+from utils import read_more, translate
 import re
 
 
@@ -30,10 +30,13 @@ def character_resume(q_id):
         animes_formatted += " *|* ".join(animes[:4]) + read_more() + " *|* " \
                             " *|* ".join(animes[:4])
     about = re.sub('\n([^:(\n]+:)', r'*\1*', '\n' + about)
-    s = f'*{name} [{name_kanji}]* ({member_favorites} favorites)\n' \
-        f'*Nicknames:* {nicknames_f}\n' \
-        f'*Voice Actor:* {japanese_va}\n' \
-        + animes_formatted + '\n' +\
-        f'*About:* {read_more()} \n{about}'
+    about_en = about
+    about = translate(about)[0]
+    s = (f'*{name} [{name_kanji}]* ({member_favorites} favoritos)\n'
+        f'*Apelidos:* {nicknames_f}\n'
+        f'*Dublador(a):* {japanese_va}\n'
+        + animes_formatted + '\n' +
+        f'*Sobre:* {read_more()}{about}\n'
+        f'*About(English):* {read_more()}{about_en}')
     return [s, image_url]
 

@@ -1,4 +1,7 @@
 import re
+import requests
+import os
+from google.cloud import translate as tr
 from datetime import datetime
 
 
@@ -12,6 +15,43 @@ def is_date_equal_or_bigger(d1, d2):
            (d1[2] == d2[2] and d1[1] == d2[1] and d1[0] > d2[0]) or \
            (d1[2] == d2[2] and d1[1] == d2[1] and d1[0] == d2[0])
 
+def translate(*texts): # Google
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']='keys/key.json'
+    translations = tr.Client().translate(
+        list(texts), target_language='pt', 
+        source_language='en', format_='text')
+    return [translation['translatedText'] for translation in translations]
+    
+    
+def old_translate(*texts): #Microsoft
+    l = list(texts)
+
+    with open('keys/microsoft.key') as key_file:
+        api_key = key_file.read()
+        
+    api_endpoint = 'https://api.cognitive.microsofttranslator.com'
+
+    path = '/translate?api-version=3.0'
+    params = '&from=en&to=pt'
+    url = api_endpoint + path + params
+
+    body = []
+    for text in texts:
+        body.append({'text': text})
+    headers = {
+        'Ocp-Apim-Subscription-Key': api_key,
+        'Content-type': 'application/json'
+
+     }
+
+    request = requests.post(url, headers=headers, json=body)
+
+    response = request.json()
+    translations = []
+    for translation in response:
+    	translations.append(translation['translations'][0]['text'])
+    return translations
+    
 
 def get_date_from_str(date):
     date_pattern = re.compile('(\d+)-(\d+)-(\d+).+')

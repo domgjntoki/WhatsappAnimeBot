@@ -9,15 +9,25 @@ from Output import Output
 from bot_caller import make_call
 from BotRequests import ScriptsToExecute
 import traceback
+from pathlib import Path
 
 print('starting program...')
 #directory = os.path.dirname(sys.argv[0])
 #directory = r'/home/pi/Desktop/WppBot'
 #os.chdir(directory)
 
-messages_count = json.loads(open('fonts/messages_count.json').read(),
-                            strict=False)
+if os.path.exists('fonts/messages_count.json'):
+    messages_file = open('fonts/messages_count.json')
+else:
+    messages_file = open('fonts/messages_count.json', 'w+')
+    messages_file.write(r'{}')
 
+messages_count = json.loads(messages_file.read(),
+                            strict=False)
+messages_file.close()
+
+
+Path("browser_data").mkdir(parents=True, exist_ok=True)
 options = webdriver.ChromeOptions()
 options.add_argument('--no-sandbox')
 options.add_argument(r'user-data-dir=browser_data')
@@ -28,7 +38,7 @@ driver = webdriver.Chrome(chrome_options=options)
 
 print('driver done...')
 driver.get(r'https://web.whatsapp.com/')
-# input("If already done QR Code, hit enter: ")
+input("If already done QR Code, hit enter: ")
 print("loading functions...")
 js_caller.load_functions(driver)
 

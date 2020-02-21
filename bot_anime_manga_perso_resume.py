@@ -1,15 +1,17 @@
 import requests
-from utils import read_more, get_datetime_from_format
+import uuid
+import re
 import threading
+from utils import read_more, get_datetime_from_format, translate
 from bot_character_resume import character_resume
 from bs4 import BeautifulSoup as Bs
-import re
+
 
 
 def get_json_result(key, url, json_result):
         json_result[key] = requests.get(url)
-
-
+    
+    
 def anime_mange_perso_resume(id, q_type):
     if q_type == 'anime':
         return anime_resume(id, q_type)
@@ -72,23 +74,29 @@ def manga_resume(id):
 
     bar = "*====================*"
     latest_releases_str = '\n'.join(latest_releases)
+    
+    genres_str = ", ".join(genres)
+    description_en = description
+    genres_str, latest_releases_str, description = translate(
+        genres_str, latest_releases_str, description)
     s = (f'*{title.upper()} [{manga_type}]*\n\n'
-         f'*{", ".join(genres)}*\n'
+         f'*{genres_str.title()}*\n'
          f'{bar}\n'
-         f'*Score:* {rating}\n'
+         f'*Nota:* {rating}\n'
          f'*Status:* {status}\n'
-         f'*Author:* {author} *|* *Artist:* {artist}\n'
-         f'*Publisher:* {publisher}\n'
-         f'*Serialization:* {serialization}\n'
-         f'*Year:* {year}\n'
+         f'*Autor:* {author} *|* *Artist:* {artist}\n'
+         f'*Editora:* {publisher}\n'
+         f'*Serialização:* {serialization}\n'
+         f'*Ano:* {year}\n'
          f'{bar}\n'
-         f'*Release Data: {read_more()}*\n'
-         f'*Latest Releases:*\n'
+         f'*Informações de Lançamento: {read_more()}*\n'
+         f'*Últimos lançamentos:*\n'
          f'{latest_releases_str}\n\n'
-         f'*Anime Start/End Chapter:*\n'
+         f'*Capítulo Inicial/Final do anime:*\n'
          f'{anime_end}'
          f'{bar}\n'
-         f'*Synopsis:*\n{description}')
+         f'*Sinopse:*{description}\n\n'
+         f'*Synopsis(English):*{read_more()}{description_en}')
     return [s, image_url]
 
 
@@ -143,21 +151,27 @@ def anime_resume(id, q_type):
     # Mangas has chapters and volumes, and animes episodes
     if q_type == 'anime':
         ep_or_chap = \
-            f'*Episodes:* {"?" if ma_ep_chap is None else ma_ep_chap}'
+            f'*Episódios:* {"?" if ma_ep_chap is None else ma_ep_chap}'
     else:
         m_volumes = search_result["volumes"]
         ep_or_chap = \
             f'*Chapters:* {"?" if ma_ep_chap is None else ma_ep_chap} ' \
             f'*Volumes:* {"?" if  m_volumes is None else m_volumes}'
 
+    #translating
+    genres = get_formatted_list(ma_genre)
+    ma_synopsis_en = ma_synopsis
+    genres, ma_rating, ma_synopsis, from_formatted, to_formatted  = translate(
+        genres, ma_rating, ma_synopsis, from_formatted, to_formatted)
     title = f'*{ma_name.upper()} [{ma_type}]* #{ma_rank}\n' \
-            f'{ma_rating }\n*{get_formatted_list(ma_genre)}*\n'
-    data = f'*Score:* {ma_score} | *Popularity:* {ma_popular}\n' \
+            f'{ma_rating }\n*{genres.title()}*\n'
+            
+    data = f'*Nota:* {ma_score} | *Popularidade:* {ma_popular}\n' \
            f'*Status:* {ma_status}.\n' \
            f'{ep_or_chap}\n' \
-           f'*{"Studios" if q_type == "anime" else "Serialization"}:* ' \
+           f'*{"Estúdios" if q_type == "anime" else "Serialization"}:* ' \
            f'{get_formatted_list(ma_publisher)}\n' \
-           f'*Release:* {from_formatted} to {to_formatted}\n'
+           f'*Lançamento:* De {from_formatted} até {to_formatted}\n'
 
     # if has directors and staff, add it to data
     if characters_staff is not None:
@@ -167,9 +181,10 @@ def anime_resume(id, q_type):
                 if person["positions"] == ['Director']:
                     directors.append(f'*[{person["name"]}]*')
             if len(directors) > 0:
-                data += f'*Directors:* {" | ".join(directors)}\n'
+                data += f'*Diretores:* {" | ".join(directors)}\n'
 
-    synopsis = f'*Synopsis:* {read_more()}{ma_synopsis}'
+    synopsis = (f'*Sinopse:* {read_more()}{ma_synopsis}\n\n'
+                f'*Synopsis(English):*{read_more()}{ma_synopsis_en}')
 
     s += f'{title}*{bar}*\n{data}\n*{bar}*\n{synopsis}'
     is_hentai = 'hentai' in get_formatted_list(ma_genre).lower()

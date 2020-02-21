@@ -149,12 +149,8 @@ def command_msg_count_rank(chat, msgs_count, count_mode):
         rank_str += '\n'
         total_count += count
 
-    if chat['id'] == "559492596286-1468686780@g.us":  # Amigos Otakus
-        warning = '*meta: 100 msgs*\n'
-    else:
-        warning = ''
     rank_str = f'Rank de mensagens (Total: ' \
-               f'{total_count})\n{warning}{read_more()}{rank_str}'
+               f'{total_count})\n{read_more()}{rank_str}'
     send_message(chat['id'], rank_str)
 
 

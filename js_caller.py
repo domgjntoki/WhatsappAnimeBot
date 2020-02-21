@@ -26,9 +26,12 @@ def execute_scripts(driver):
 
 
 def load_functions(driver):
-    for js_file in os.listdir('js_codes'):
-        with open(f'js_codes/{js_file}') as code:
-            driver.execute_script(code.read())
+    for i in range(3):
+        for js_file in os.listdir('js_codes'):
+            with open(f'js_codes/{js_file}') as code:
+                try:
+                    driver.execute_script(code.read())
+                except: pass
 
 
 def send_message(chat_id, msg):
@@ -53,8 +56,9 @@ def send_media(chat_id, msg, image_url, msg_id=None,
     msg_id = 'null' if msg_id is None else f"'{msg_id}'"
     msg = '%r' % msg
     msg = msg.replace(r'\r', r'\n')
-    script = f"send_media('{chat_id}', String.raw`{image_base64}`, " \
-             f"{msg}, {msg_id})"
+    #script = f"send_media('{chat_id}', String.raw`{image_base64}`, " \
+    #         f"{msg}, {msg_id})"
+    script = f"WAPI.sendImage(String.raw`{image_base64}`, '{chat_id}', \"temp\", {msg}, null)"
     #print(f'msg: {msg}')
     #print('\timage base64: ', image_base64)
     #print('\tchat_id:' + chat_id)
@@ -97,8 +101,7 @@ def can_make_element_choice(user_message, current_message, max_value):
     # 1 <= message number <= max_value, send true, else false
     return user_id == cur_id and cur_text.isnumeric() and 1 <= int(
         cur_text) <= max_value
-
-
+    
 def send_choose_list(chat_id, q_type, time_limit, choose_list_str):
     choose_msg = f'Escolha o {q_type} a partir do número (Envie *"0"* para ' \
                  f'para cancelar)\n' \
