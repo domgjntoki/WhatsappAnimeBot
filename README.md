@@ -1,5 +1,5 @@
 # Whatsapp MyAnimeList BOT
-A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with javascript to send messages, without yowsup, at the moment with commands only in portuguese (Will add english later)
+A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with javascript to send messages. At the moment with commands only in portuguese (Will add english later)
 
 ## Available commands
 
