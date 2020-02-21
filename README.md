@@ -93,3 +93,12 @@ A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with j
 - **[ !top ]** - Mostra os comandos que mostram os tops do MyAnimeList, inclusive os top animes da temporada
 
 - **[ !list ]** - Mostra todos os comandos relacionados às listas de usuários no MyAnimeList
+
+
+
+## App Demonstration
+<img src="app_demo_images/searching_releases.jpg" width="250">  <img src="app_demo_images/releases_of_day.jpg" width="250">
+
+<img src="app_demo_images/searching_releases_for_anime.jpg" width="250">  <img src="app_demo_images/command_fail_example.jpg" width="250">
+
+<img src="app_demo_images/user_mal.PNG" width="500">
