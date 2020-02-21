@@ -16,7 +16,7 @@ A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with j
    - _!personagem Rem_
    
 - **[ !monogatari ]** Mostra ordem das temporadas de monogatari 
-
+---------------------------------------------------------------------------------------
 - **[ !user ]** - Mostra comandos relacionados ao perfil do usuário
     - **[ !user** _usuário_ **]** - Mostra o perfil do MAL do usuário
         - _!user AltrianZ_
@@ -69,31 +69,19 @@ A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with j
 		- **EX:** _!list manga completed DomGintoki, !list manga ptr DomGintoki_
 		- **_OBS: se não informar o tipo, a lista "reading" é mostrada por padrão_** 
 			- _(!list manga DomGintoki)_
-
-- **[ !help ]** - Mostra todos os comandos disponíveis no bot
-
-- **[ !anime** _título_ **]** - Busca por um anime no MyAnimeList 
-    - _!anime Shingeki no Kyojin_
-   
-- **[ !manga** _título_ **]** - Busca por um manga no MyAnimeList 
-  - _!manga Shingeki no Kyojin_
-  
-- **[ !personagem** _título_ **]** - Busca por um personagem no MyAnimeList 
-   - _!personagem Rem_
-   
-- **[ !monogatari ]** Mostra ordem das temporadas de monogatari 
-
-- **[ !user ]** - Mostra comandos relacionados ao perfil do usuário
-
-- **[ !favorite ]** - Mostra os comandos que mostram os favoritos de um usuário no MAL
-
-- **[ !semanal, !semana, !lançamento ]** - Mostra comandos relacionados a lançamentos de animes na semana 
-	- (Fazem a mesma coisa, apenas palavras-chaves diferentes)
-
-- **[ !top ]** - Mostra os comandos que mostram os tops do MyAnimeList, inclusive os top animes da temporada
-
-- **[ !list ]** - Mostra todos os comandos relacionados às listas de usuários no MyAnimeList
-
+--------------------------------------------------------------------------------------------------------
+- **[ !contador help ]** - Mostra todos os comandos relacionados ao contador de mensagens e ranks
+- **[ !contador]** - Mostra a contagem de mensagens semanal da pessoa e sua posição no ranking
+- **[ !contador intervalo ]** - Mostra a contagem de mensagens da pessoa em um intervalo e seu ranking nele
+	- **intervalos =** dia, semana, mês, all
+	- _!contador, !contador dia, !contador mês..._
+- **[ !contador rank, !rank, !ranking ]** - Mostra o ranking semanal do grupo.
+- **[ !contador rank, !rank, !ranking** intervalo **]** - Mostra a contagem (de mensagens do grupo no intervalo indicado
+	- **intervalos =** dia, semana, mês, all
+	- _rank, !ranking dia, !contador rank mês..._
+o **[!contador palavras]** - Mostra um resumo das palavras mais utilizadas, entre outras informações
+- Obs: Para !contador e !contador palavras, é possível selecionar uma pessoa especifica do grupo usando @NomePessoa ou usando a posição da pessoa no ranking.
+- !contador 1, !contador @Fredson Sumi, !contador palavras @Aki, !contador @JJ~ mês...
 
 
 ## App Demonstration
