@@ -16,7 +16,7 @@ def translate(*texts): # Google
         source_language='en', format_='text')
     return [translation['translatedText'] for translation in translations]
 ```
-to `
+to
 ```
 def translate(*texts): # Google
     return texts
@@ -27,7 +27,7 @@ After doing the translation setup, you need to install the required libraries, l
 ```pip install -r requirements.txt```
 
 ### Starting the bot
-Run the bot with ```python main.py```, solve the Whatsapp's QR Code with your phone, then confirm it by pressing enter in the console
+Run the bot with ```python main.py```, solve the Whatsapp's QR Code with your phone, then confirm it by pressing enter in the console.
 You may need to install the chromedriver in your computer and add it to your PATH, you can download it from here https://chromedriver.storage.googleapis.com/index.html?path=84.0.4147.30/
 
 ## Available commands
