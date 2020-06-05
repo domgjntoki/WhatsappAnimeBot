@@ -1,0 +1,7 @@
+requests
+selenium
+beautifulsoup4
+Pillow
+protobuf
+google-cloud-translate
+google.cloud
