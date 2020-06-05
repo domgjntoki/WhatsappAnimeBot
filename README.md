@@ -1,6 +1,35 @@
 # Whatsapp MyAnimeList BOT
 A MyAnimeList Bot that reacts to Whatsapp's chat commands, using selenium with javascript to send messages. At the moment with commands only in portuguese (Will add english later)
 
+## Setup
+You need python 3.6.x and above to use this, mainly because F-strings are used everywhere
+
+### Translation API Setup
+Currently, the bot translates the MyAnimeList, Anilist and MangaUpdates info with the google cloud translation tool directly to Portuguese, so if you need this functionality, create a folder named keys and add your translation api key in keys/key.json
+
+If you for the time being does not need it, just replace the code in utils.py like the following
+```
+def translate(*texts): # Google
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']='keys/key.json'
+    translations = tr.Client().translate(
+        list(texts), target_language='pt', 
+        source_language='en', format_='text')
+    return [translation['translatedText'] for translation in translations]
+```
+to `
+```
+def translate(*texts): # Google
+    return texts
+```
+
+### Modules Installation
+After doing the translation setup, you need to install the required libraries, like the following
+```pip install -r requirements.txt```
+
+### Starting the bot
+Run the bot with ```python main.py```, solve the Whatsapp's QR Code with your phone, then confirm it by pressing enter in the console
+You may need to install the chromedriver in your computer and add it to your PATH, you can download it from here https://chromedriver.storage.googleapis.com/index.html?path=84.0.4147.30/
+
 ## Available commands
 
 ### Portuguese
