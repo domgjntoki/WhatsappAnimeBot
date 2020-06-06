@@ -19,7 +19,7 @@ def translate(*texts): # Google
 to
 ```
 def translate(*texts): # Google
-    return texts
+    return list(texts)
 ```
 
 ### Modules Installation
